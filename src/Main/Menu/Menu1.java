@@ -3,6 +3,7 @@ package Main.Menu;
 /**
  * Created by Denis on 19.09.2014.
  */
+import Main.Menu.*;
 public class Menu1 extends BaseMenu{
     @Override
     public void printMenu() {
@@ -19,17 +20,17 @@ public class Menu1 extends BaseMenu{
     public boolean select(int i) {
         switch(i){
             case 1:
-                //меню 2
+                new Menu2().printMenu();
                 return true;
             case 2:
-                //меню 5
+                new Menu5().printMenu();
                 return true;
             case 3:
-                //меню 6
+                new Menu6().printMenu();
                 return true;
             case 4:
             case 5:
-                //меню 7
+                new Menu7().printMenu();
                 return true;
             default:
                 return super.select(i);

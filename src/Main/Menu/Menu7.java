@@ -9,15 +9,17 @@ public class Menu7 extends BaseMenu {
         stringWriteToConsol("Вы уверенны?");
         stringWriteToConsol("1 - Да");
         stringWriteToConsol("2 - Нет");
+        getValue();
     }
 
     @Override
     public boolean select(int i) {
         switch (i){
             case 1:
-                //сделать действие и выход в меню 1
+                //TODO сделать действие
             case 2:
-                //меню 1
+                new Menu1().printMenu();
+                return true;
             default:
                 return super.select(i);
         }

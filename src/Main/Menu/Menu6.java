@@ -6,7 +6,8 @@ package Main.Menu;
 public class Menu6 extends BaseMenu {
     @Override
     public void printMenu() {
-        stringWriteToConsol("Вывести все работы!");
+        //TODO Вывести все работы!
+        stringWriteToConsol("Все работы!");
         stringWriteToConsol("Какое у вас сейчас настроение?");
         stringWriteToConsol("1 - Хорошое");
         stringWriteToConsol("2 - Плохое");
@@ -17,12 +18,12 @@ public class Menu6 extends BaseMenu {
     public boolean select(int i) {
         switch (i) {
             case 1:
-                //нарастить оценки
-                //меню 7
+                //TODO нарастить оценки
+                new Menu7().printMenu();
                 return true;
             case 2:
-                //уменьшить оценки
-                //меню 7
+                //TODO уменьшить оценки
+                new Menu7().printMenu();
                 return true;
             default:
                 return super.select(i);

@@ -6,7 +6,7 @@ package Main.Menu;
 public class Menu4 extends BaseMenu {
     @Override
     public void printMenu() {
-        stringWriteToConsol("Проверить еще одну работу?");
+        stringWriteToConsol("Повторить опирацию?");
         stringWriteToConsol("1 - Да");
         stringWriteToConsol("2 - Нет");
         stringWriteToConsol("3 - Простовить оценки");
@@ -17,13 +17,13 @@ public class Menu4 extends BaseMenu {
     public boolean select(int i) {
         switch (i) {
             case 1:
-                //меню 3
+                new Menu3().printMenu();
                 return true;
             case 2:
-                //меню 1
+                new Menu1().printMenu();
                 return true;
             case 3:
-                //меню 6
+                new Menu6().printMenu();
                 return true;
             default:
                 return super.select(i);

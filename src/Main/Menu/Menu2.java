@@ -17,10 +17,10 @@ public class Menu2 extends BaseMenu {
     public boolean select(int i) {
         switch(i){
             case 1:
-                //меню 3
+                new Menu3().printMenu();
                 return true;
             case 2:
-                //меню 8
+                new Menu8().printMenu();
                 return true;
             default:
                 return super.select(i);

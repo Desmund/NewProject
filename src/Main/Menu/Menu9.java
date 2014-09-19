@@ -8,10 +8,10 @@ public class Menu9 extends BaseMenu{
     public boolean select(int i) {
         switch (i){
             case 1:
-                //меню 8
+                new Menu8().printMenu();
                 return true;
             case 2:
-                //меню 1
+                new Menu1().printMenu();
                 return true;
             default:
                 return super.select(i);
