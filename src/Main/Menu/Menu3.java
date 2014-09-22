@@ -26,12 +26,8 @@ public class Menu3{
             Utils.stringWriteToConsol("Ввести группу:");
             group  = readValue();
             Utils.stringWriteToConsol("Ввести метку:");
-            try {
-                Utils.stringWriteToConsol("0 - Прогульщик,1 - Хороший студент,2 - Курсовик");
-                mark = inputMark();
-            }catch(Exception e){
-                Utils.stringWriteToConsol("Вы ввели не корректные данные!");
-            }
+            Utils.stringWriteToConsol("0 - Прогульщик,1 - Хороший студент,2 - Курсовик");
+            mark = inputMark();
         list.add(new BaseWork(name,theme,group,mark));
     }
 
@@ -47,7 +43,7 @@ public class Menu3{
         return s;
     }
 
-    private int inputMark()throws Exception{
+    private int inputMark(){
         int mark = -1;
         while ((mark<0)||(mark>2)) {
             try {
