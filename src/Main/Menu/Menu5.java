@@ -1,6 +1,7 @@
 package Main.Menu;
 
 import Main.Utils;
+import Main.WorkInMemory;
 
 import java.util.ArrayList;
 /**
@@ -8,17 +9,18 @@ import java.util.ArrayList;
  */
 public class Menu5{
 
-    ArrayList<BaseWork> bw = new ArrayList<BaseWork>();
+
 
     public void printMenu(){
-        outputWork();
+        ArrayList<BaseWork> bw = WorkInMemory.get().getAllList();
+        outputWork(bw);
         Utils.stringWriteToConsol("Кол-во прогульщиков: "+getCountOfStudentByMark(bw,0));
         Utils.stringWriteToConsol("Кол-во хороших студентов: "+getCountOfStudentByMark(bw,1));
         Utils.stringWriteToConsol("Кол-во курсовиков: "+getCountOfStudentByMark(bw,2));
         new Menu1().printMenu();
     }
 
-    private void outputWork() {
+    private void outputWork(ArrayList<BaseWork> bw) {
         //TODO вывод работ    с оценками+
         writeWorks(bw);
         Utils.stringWriteToConsol("Нажмите Enter");
