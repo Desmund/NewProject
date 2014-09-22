@@ -22,7 +22,7 @@ public abstract class BaseMenu {
             try {
                 num = Utils.getIntValue();
                 hasValue = select(num);
-                if(!hasValue)System.out.println("Введено не верное число!");
+                if(!hasValue)stringWriteToConsol("Введено не верное число!");
             }catch(Exception e){
                 stringWriteToConsol("Вводить можно,только целые числа!");
             }

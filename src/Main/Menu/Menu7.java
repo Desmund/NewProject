@@ -17,7 +17,7 @@ public class Menu7 extends BaseMenu {
     public boolean select(int i) {
         switch (i){
             case 1:
-                //TODO сделать действие
+                //TODO сделать действие -
             case 2:
                 new Menu1().printMenu();
                 return true;

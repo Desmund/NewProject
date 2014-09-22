@@ -1,18 +1,24 @@
 package Main.Menu;
 import Main.Utils;
+
+import java.util.ArrayList;
+
 /**
  * Created by Denis on 19.09.2014.
  */
 public class Menu3{
+
+    ArrayList<BaseWork> list;
+
     public void printMenu(){
         inputWork();
         new Menu4().printMenu();
     }
 
     private void inputWork(){
-        //TOdo сохранение данных
+        //TOdo сохранение данных +
         String name,theme,group;
-        int mark;
+        int mark = 0;
             Utils.stringWriteToConsol("Ввести имя студента:");
             name = readValue();
             Utils.stringWriteToConsol("Ввести тему курсача:");
@@ -26,6 +32,7 @@ public class Menu3{
             }catch(Exception e){
                 Utils.stringWriteToConsol("Вы ввели не корректные данные!");
             }
+        list.add(new BaseWork(name,theme,group,mark));
     }
 
     private String readValue(){
