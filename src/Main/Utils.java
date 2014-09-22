@@ -12,9 +12,11 @@ public class Utils {
         String s = buff.readLine();
         return s;
     }
+
     public static void stringWriteToConsol(String s){
         System.out.println(s);
     }
+
     public static int getIntValue()throws Exception{
         int num = Integer.parseInt(stringReadFromConsol());
         return num;

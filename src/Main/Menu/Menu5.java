@@ -6,10 +6,12 @@ import Main.Utils;
  * Created by Denis on 19.09.2014.
  */
 public class Menu5{
+
     public void printMenu(){
         outputWork();
         new Menu1().printMenu();
     }
+
     private void outputWork() {
         //TODO вывод работ
         Utils.stringWriteToConsol("Вывод работ");

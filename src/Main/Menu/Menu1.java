@@ -5,6 +5,7 @@ package Main.Menu;
  */
 import Main.Menu.*;
 public class Menu1 extends BaseMenu{
+
     @Override
     public void printMenu() {
         stringWriteToConsol("Выберите один из пунктов меню:");
@@ -16,6 +17,7 @@ public class Menu1 extends BaseMenu{
         super.printMenu();
         getValue();
     }
+
     @Override
     public boolean select(int i) {
         switch(i){

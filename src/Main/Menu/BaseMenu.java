@@ -10,9 +10,11 @@ public abstract class BaseMenu {
     protected void printMenu(){
         stringWriteToConsol("0 - Выход");
     }
+
     protected void stringWriteToConsol(String s){
         System.out.println(s);
     }
+
     protected int getValue(){
         int num=0;
         boolean hasValue=false;
@@ -27,6 +29,7 @@ public abstract class BaseMenu {
         }
         return num;
     }
+
     protected boolean select(int i){
         switch(i){
             case 0:

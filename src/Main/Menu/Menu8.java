@@ -6,11 +6,14 @@ import Main.Utils;
  * Created by Denis on 19.09.2014.
  */
 public class Menu8 {
+
     public void printMenu(){
         inputFile();
         new Menu1().printMenu();
     }
+
     private void inputFile(){
+        //TODO фаловый вывод и сохранение данных
         Utils.stringWriteToConsol("Введите название файла:");
         try {
             String s = Utils.stringReadFromConsol();

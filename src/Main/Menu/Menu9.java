@@ -4,6 +4,7 @@ package Main.Menu;
  * Created by Denis on 19.09.2014.
  */
 public class Menu9 extends BaseMenu{
+
     @Override
     public boolean select(int i) {
         switch (i){

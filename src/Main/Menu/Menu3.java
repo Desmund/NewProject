@@ -10,26 +10,38 @@ public class Menu3{
     }
 
     private void inputWork(){
+        //TOdo сохранение данных
         String name,theme,group;
         int mark;
-        try {
             Utils.stringWriteToConsol("Ввести имя студента:");
-            name = Utils.stringReadFromConsol();
+            name = readValue();
             Utils.stringWriteToConsol("Ввести тему курсача:");
-            theme = Utils.stringReadFromConsol();
+            theme = readValue();
             Utils.stringWriteToConsol("Ввести группу:");
-            group  = Utils.stringReadFromConsol();
+            group  = readValue();
             Utils.stringWriteToConsol("Ввести метку:");
-            Utils.stringWriteToConsol("0 - Прогульщик,1 - Хороший студент,2 - Курсовик");
-            mark = inputMark();
+            try {
+                Utils.stringWriteToConsol("0 - Прогульщик,1 - Хороший студент,2 - Курсовик");
+                mark = inputMark();
+            }catch(Exception e){
+                Utils.stringWriteToConsol("Вы ввели не корректные данные!");
+            }
+    }
+
+    private String readValue(){
+        String s="";
+        try{
+            while(s.equals(""))
+              s = Utils.stringReadFromConsol();
         }catch(Exception e){
+            s="";
             Utils.stringWriteToConsol("Вы ввели не корректные данные!");
         }
+        return s;
     }
 
     private int inputMark()throws Exception{
         int mark = -1;
-
         while ((mark<0)||(mark>2)) {
             try {
                 mark = Utils.getIntValue();
