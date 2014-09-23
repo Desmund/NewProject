@@ -9,8 +9,6 @@ import java.util.ArrayList;
  */
 public class Menu5{
 
-
-
     public void printMenu(){
         ArrayList<BaseWork> bw = WorkInMemory.get().getAllList();
         outputWork(bw);

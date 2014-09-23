@@ -1,6 +1,7 @@
 package Main.Menu;
 
 import Main.Utils;
+import Main.WorkInMemory;
 
 import java.util.ArrayList;
 
@@ -9,7 +10,7 @@ import java.util.ArrayList;
  */
 public class Menu6 extends BaseMenu {
 
-    ArrayList<BaseWork> bw = new ArrayList<BaseWork>();
+    ArrayList<BaseWork> bw = WorkInMemory.get().getAllList();
 
     @Override
     public void printMenu() {
@@ -28,12 +29,13 @@ public class Menu6 extends BaseMenu {
         int rating = 10;
         switch (i) {
             case 1:
+                //todo удалить вопрос+
                 putRating(bw,-rating);
-                new Menu7().printMenu();
+                new Menu1().printMenu();
                 return true;
             case 2:
                 putRating(bw,rating);
-                new Menu7().printMenu();
+                new Menu1().printMenu();
                 return true;
             default:
                 return super.select(i);
@@ -50,12 +52,12 @@ public class Menu6 extends BaseMenu {
                     rating=50;
                     else
                         rating+=random_rating;
-                bw.get(i).setMark(50 + rating);
+                bw.get(i).setRating((byte)(50 + rating));
             }
             else
                 if(list.get(i).getMark()==1){
                     random_rating = (int) Math.random() * 30;
-                    bw.get(i).setMark(random_rating + 60 + rating);
+                    bw.get(i).setRating((byte)(random_rating + 60 + rating));
                 }
             else{
                 random_rating = (int) Math.random() * 11;
@@ -63,7 +65,7 @@ public class Menu6 extends BaseMenu {
                         rating=100;
                     else
                         rating+=random_rating;
-                    bw.get(i).setMark(50 + rating);
+                    bw.get(i).setRating((byte)(90 + rating));
             }
         }
     }

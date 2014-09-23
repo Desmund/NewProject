@@ -1,5 +1,6 @@
 package Main.Menu;
 import Main.Utils;
+import Main.WorkInMemory;
 
 import java.util.ArrayList;
 
@@ -8,8 +9,6 @@ import java.util.ArrayList;
  */
 public class Menu3{
 
-    ArrayList<BaseWork> list;
-
     public void printMenu(){
         inputWork();
         new Menu4().printMenu();
@@ -17,6 +16,8 @@ public class Menu3{
 
     private void inputWork(){
         //TOdo сохранение данных +
+        //TOdo не работает ввод+
+        ArrayList<BaseWork> bw = WorkInMemory.get().getAllList();
         String name,theme,group;
         int mark = 0;
             Utils.stringWriteToConsol("Ввести имя студента:");
@@ -24,11 +25,12 @@ public class Menu3{
             Utils.stringWriteToConsol("Ввести тему курсача:");
             theme = readValue();
             Utils.stringWriteToConsol("Ввести группу:");
-            group  = readValue();
+            group = readValue();
             Utils.stringWriteToConsol("Ввести метку:");
             Utils.stringWriteToConsol("0 - Прогульщик,1 - Хороший студент,2 - Курсовик");
             mark = inputMark();
-        list.add(new BaseWork(name,theme,group,mark));
+            BaseWork new_bw = new BaseWork(name,theme,group,mark);
+            bw.add(new_bw);
     }
 
     private String readValue(){

@@ -12,8 +12,8 @@ public class Menu1 extends BaseMenu{
         stringWriteToConsol("1 - Записать новые курсовые работы");
         stringWriteToConsol("2 - Просмотреть оценки");
         stringWriteToConsol("3 - Поставить оценки");
-        stringWriteToConsol("4 - Просмотреть проверянные курсовые работы");
-        stringWriteToConsol("5 - Удалить проверяные курсовые работы");
+        stringWriteToConsol("4 - Удалить проверяные курсовые работы");
+        //todo удалить  вопрос+
         super.printMenu();
         getValue();
     }
@@ -31,7 +31,6 @@ public class Menu1 extends BaseMenu{
                 new Menu6().printMenu();
                 return true;
             case 4:
-            case 5:
                 new Menu7().printMenu();
                 return true;
             default:
