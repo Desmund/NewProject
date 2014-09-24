@@ -17,6 +17,14 @@ public class Utils {
         System.out.println(s);
     }
 
+    public static void stringWriteToConsolWithoutEnter(String s){
+        System.out.print(s);
+    }
+
+    public static void writeEnter(){
+        System.out.println("");
+    }
+
     public static int getIntValue()throws Exception{
         int num = Integer.parseInt(stringReadFromConsol());
         return num;

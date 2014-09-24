@@ -9,11 +9,12 @@ public class Menu8 {
 
     public void printMenu(){
         inputFile();
+        Utils.writeEnter();
         new Menu1().printMenu();
     }
 
     private void inputFile(){
-        //TODO фаловый вывод и сохранение данных  -
+        //TODO фаловый вывод и сохранение данных
         Utils.stringWriteToConsol("Введите название файла:");
         try {
             String s = Utils.stringReadFromConsol();

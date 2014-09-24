@@ -10,14 +10,21 @@ import java.util.ArrayList;
 public class WorkInMemory {
     private static WorkInMemory instance;
 
-    private  ArrayList<BaseWork> bw = new ArrayList<BaseWork>();
+    private static ArrayList<BaseWork> bw;
 
     public ArrayList<BaseWork> getAllList(){
         return bw;
     }
 
     public void addWork(BaseWork work){
-       bw.add(work);
+        bw.add(work);
+    }
+
+    public boolean oneWorkHasRating(){
+        for(int i=0;i<bw.size();i++){
+            if(bw.get(i).getRating()>0) return true;
+        }
+        return false;
     }
 
     private WorkInMemory() {
@@ -25,6 +32,7 @@ public class WorkInMemory {
 
     public static WorkInMemory get() {
         if (instance == null) {
+            bw = new ArrayList<BaseWork>();
             instance = new WorkInMemory();
         }
         return instance;

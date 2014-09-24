@@ -14,7 +14,7 @@ public class Menu6 extends BaseMenu {
 
     @Override
     public void printMenu() {
-        //TODO Вывести все работы без оценок! +
+        //TODO Вывести все работы без оценок!
         writeWorks(bw);
         Utils.stringWriteToConsol("Кол-во проверянных работ: "+getCountOfStudentWithRating(bw));
         stringWriteToConsol("Какое у вас сейчас настроение?");
@@ -26,10 +26,10 @@ public class Menu6 extends BaseMenu {
 
     @Override
     public boolean select(int i) {
+        Utils.writeEnter();
         int rating = 10;
         switch (i) {
             case 1:
-                //todo удалить вопрос+
                 putRating(bw,-rating);
                 new Menu1().printMenu();
                 return true;
@@ -43,7 +43,6 @@ public class Menu6 extends BaseMenu {
     }
 
     private void putRating(ArrayList<BaseWork>list,int rating){
-        //TODO  проставить оценки!  +
         int random_rating=0;
         for(int i=0;i<list.size();i++) {
             if(list.get(i).getMark()==0) {

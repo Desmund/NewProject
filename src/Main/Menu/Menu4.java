@@ -1,5 +1,7 @@
 package Main.Menu;
 
+import Main.Utils;
+
 /**
  * Created by Denis on 19.09.2014.
  */
@@ -16,6 +18,7 @@ public class Menu4 extends BaseMenu {
 
     @Override
     public boolean select(int i) {
+        Utils.writeEnter();
         switch (i) {
             case 1:
                 new Menu3().printMenu();

@@ -15,8 +15,6 @@ public class Menu3{
     }
 
     private void inputWork(){
-        //TOdo сохранение данных +
-        //TOdo не работает ввод+
         ArrayList<BaseWork> bw = WorkInMemory.get().getAllList();
         String name,theme,group;
         int mark = 0;
@@ -29,6 +27,7 @@ public class Menu3{
             Utils.stringWriteToConsol("Ввести метку:");
             Utils.stringWriteToConsol("0 - Прогульщик,1 - Хороший студент,2 - Курсовик");
             mark = inputMark();
+            Utils.writeEnter();
             BaseWork new_bw = new BaseWork(name,theme,group,mark);
             bw.add(new_bw);
     }

@@ -12,14 +12,17 @@ public class Menu5{
     public void printMenu(){
         ArrayList<BaseWork> bw = WorkInMemory.get().getAllList();
         outputWork(bw);
+        //todo Еще не проверенны работы для студентов из категории
         Utils.stringWriteToConsol("Кол-во прогульщиков: "+getCountOfStudentByMark(bw,0));
         Utils.stringWriteToConsol("Кол-во хороших студентов: "+getCountOfStudentByMark(bw,1));
         Utils.stringWriteToConsol("Кол-во курсовиков: "+getCountOfStudentByMark(bw,2));
+        Utils.writeEnter();
         new Menu1().printMenu();
     }
 
     private void outputWork(ArrayList<BaseWork> bw) {
-        //TODO вывод работ    с оценками+
+        //TODO вывод работ    с оценками+++++++
+        //TODO сначала выводи инфу, а потом только печатай "нажмите Enter"
         writeWorks(bw);
         Utils.stringWriteToConsol("Нажмите Enter");
         try {
@@ -34,9 +37,9 @@ public class Menu5{
         for(int i=0;i<list.size();i++) {
             BaseWork bw = list.get(i);
             if(bw.getRating()!=0){
-                Utils.stringWriteToConsol(bw.getName());
-                Utils.stringWriteToConsol(bw.getGroup());
-                Utils.stringWriteToConsol(bw.getDate().toString());
+                Utils.stringWriteToConsolWithoutEnter(bw.getName()+" ");
+                Utils.stringWriteToConsolWithoutEnter(bw.getGroup()+" ");
+                Utils.stringWriteToConsolWithoutEnter(bw.getDate().toString()+" ");
                 Utils.stringWriteToConsol(Integer.toString(bw.getRating()));
             }
         }
