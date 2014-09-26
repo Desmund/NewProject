@@ -2,7 +2,6 @@ package Main.Menu;
 
 import Main.Utils;
 import Main.WorkInMemory;
-
 import java.util.ArrayList;
 
 /**
@@ -19,7 +18,7 @@ public class Menu6 extends BaseMenu {
         writeWorks(bw, true);
         Utils.stringWriteToConsol("Работы без оценки:");
         writeWorks(bw, false);
-        Utils.stringWriteToConsol("Кол-во проверянных работ: "+getCountOfStudentWithRating(bw));
+        Utils.stringWriteToConsol("Кол-во проверянных работ: " + getCountOfStudentWithRating(bw));
         Utils.writeEnter();
         stringWriteToConsol("Какое у вас сейчас настроение?");
         stringWriteToConsol("1 - Хорошое");
@@ -48,28 +47,27 @@ public class Menu6 extends BaseMenu {
 
     private void putRating(ArrayList<BaseWork>list,int rating){
         int random_rating=0;
-        //todo исправить рандом
+        //todo исправить рандом+++++
         for(int i=0;i<list.size();i++) {
-            if(list.get(i).getMark()==0) {
-                random_rating = (int) Math.random() * 11;
-                if(random_rating + rating<0)
-                    rating=50;
+            if(list.get(i).getRating()==0) {
+                if (list.get(i).getMark() == 0) {
+                    random_rating = (int) (Math.random() * 11);
+                    if (random_rating + rating < 0)
+                        rating = 50;
                     else
-                        rating+=random_rating;
-                bw.get(i).setRating((byte)(50 + rating));
-            }
-            else
-                if(list.get(i).getMark()==1){
-                    random_rating = (int) Math.random() * 30;
-                    bw.get(i).setRating((byte)(random_rating + 60 + rating));
+                        rating += random_rating;
+                    bw.get(i).setRating((byte) (50 + rating));
+                } else if (list.get(i).getMark() == 1) {
+                    random_rating = (int) (Math.random() * 30);
+                    bw.get(i).setRating((byte) (random_rating + 60 + rating));
+                } else {
+                    random_rating = (int) (Math.random() * 11);
+                    if (random_rating + rating > 10)
+                        rating = 100;
+                    else
+                        rating += random_rating;
+                    bw.get(i).setRating((byte) (90 + rating));
                 }
-            else{
-                random_rating = (int) Math.random() * 11;
-                if(random_rating + rating>10)
-                        rating=100;
-                    else
-                        rating+=random_rating;
-                    bw.get(i).setRating((byte)(90 + rating));
             }
         }
     }
