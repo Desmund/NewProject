@@ -14,7 +14,6 @@ public class Menu1 extends BaseMenu{
     @Override
     public void printMenu() {
         ArrayList<BaseWork> bw = WorkInMemory.get().getAllList();
-        //todo пустая строка после каждого меню+++++++++
         int i=1;
         stringWriteToConsol("Выберите один из пунктов меню:");
         stringWriteToConsol(i+" - Записать новые курсовые работы");
@@ -29,7 +28,6 @@ public class Menu1 extends BaseMenu{
             }
             super.printMenu();
         }
-        //todo удалить  вопрос
         else
             super.printMenu();
         getValue(i);
@@ -46,7 +44,7 @@ public class Menu1 extends BaseMenu{
                 else
                     hasValue = select(num);
             }catch(Exception e){
-                stringWriteToConsol("Вводить можно,только целые числа!");
+                stringWriteToConsol("Введите целое числа!");
             }
         }
         return num;

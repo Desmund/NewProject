@@ -12,7 +12,6 @@ public class Menu5{
     public void printMenu(){
         ArrayList<BaseWork> bw = WorkInMemory.get().getAllList();
         outputWork(bw);
-        //todo Еще не проверенны работы для студентов из категории
         Utils.stringWriteToConsol("Кол-во прогульщиков: "+getCountOfStudentByMark(bw,0));
         Utils.stringWriteToConsol("Кол-во хороших студентов: "+getCountOfStudentByMark(bw,1));
         Utils.stringWriteToConsol("Кол-во курсовиков: "+getCountOfStudentByMark(bw,2));
@@ -21,8 +20,6 @@ public class Menu5{
     }
 
     private void outputWork(ArrayList<BaseWork> bw) {
-        //TODO вывод работ    с оценками+++++++
-        //TODO сначала выводи инфу, а потом только печатай "нажмите Enter"
         writeWorks(bw);
         Utils.stringWriteToConsol("Нажмите Enter");
         try {
