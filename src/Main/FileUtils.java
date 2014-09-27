@@ -19,7 +19,7 @@ public class FileUtils {
                 out.close();
             }
         }catch(Exception e) {
-            System.out.println("Error!");
+            System.out.println("Ошибка при работе с файлом!");
         }
     }
 
@@ -39,13 +39,13 @@ public class FileUtils {
                     in.close();
                 }
             }catch (Exception e) {
-                System.out.println("Error!");
+                System.out.println("Ошибка при работе с файлом!");
             }
         }
         return sb.toString();
     }
 
-    private boolean exists(String fileName){
+    public boolean exists(String fileName){
         File file = new File(fileName);
         if (!file.exists())
             return false;

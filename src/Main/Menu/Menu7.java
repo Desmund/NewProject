@@ -24,8 +24,7 @@ public class Menu7 extends BaseMenu {
             case 2:
                 new Menu1().printMenu();
                 return true;
-            default:
-                return super.select(i);
         }
+        return false;
     }
 }
