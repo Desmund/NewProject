@@ -12,7 +12,7 @@ public class Menu4 extends BaseMenu {
         stringWriteToConsol("Повторить опирацию?");
         stringWriteToConsol("1 - Да");
         stringWriteToConsol("2 - Нет");
-        stringWriteToConsol("3 - Простовить оценки");
+        stringWriteToConsol("3 - Проставить оценки");
         getValue();
     }
 

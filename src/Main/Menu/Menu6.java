@@ -13,11 +13,18 @@ public class Menu6 extends BaseMenu {
 
     @Override
     public void printMenu() {
-        //TODO Вывести все работы без оценок! +++++++
-        Utils.stringWriteToConsol("Работы с оценками:");
-        writeWorks(bw, true);
-        Utils.stringWriteToConsol("Работы без оценки:");
-        writeWorks(bw, false);
+        if(bw.size()!=0) {
+            if(getCountOfStudentWithRating(bw)!=0) {
+                Utils.stringWriteToConsol("Работы с оценками:");
+                writeWorks(bw, true);
+                Utils.writeEnter();
+            }
+            if(getCountOfStudentWithRating(bw)!=bw.size()) {
+                Utils.stringWriteToConsol("Работы без оценки:");
+                writeWorks(bw, false);
+                Utils.writeEnter();
+            }
+        }
         Utils.stringWriteToConsol("Кол-во проверянных работ: " + getCountOfStudentWithRating(bw));
         Utils.writeEnter();
         stringWriteToConsol("Какое у вас сейчас настроение?");
@@ -33,11 +40,11 @@ public class Menu6 extends BaseMenu {
         int rating = 10;
         switch (i) {
             case 1:
-                putRating(bw,-rating);
+                putRating(bw,rating);
                 new Menu1().printMenu();
                 return true;
             case 2:
-                putRating(bw,rating);
+                putRating(bw,-rating);
                 new Menu1().printMenu();
                 return true;
             default:
@@ -46,29 +53,37 @@ public class Menu6 extends BaseMenu {
     }
 
     private void putRating(ArrayList<BaseWork>list,int rating){
+        //todo исправить выставление оценки++++++
         int random_rating=0;
-        //todo исправить рандом+++++
         for(int i=0;i<list.size();i++) {
             if(list.get(i).getRating()==0) {
-                if (list.get(i).getMark() == 0) {
-                    random_rating = (int) (Math.random() * 11);
-                    if (random_rating + rating < 0)
-                        rating = 50;
-                    else
-                        rating += random_rating;
-                    bw.get(i).setRating((byte) (50 + rating));
-                } else if (list.get(i).getMark() == 1) {
-                    random_rating = (int) (Math.random() * 30);
-                    bw.get(i).setRating((byte) (random_rating + 60 + rating));
-                } else {
-                    random_rating = (int) (Math.random() * 11);
-                    if (random_rating + rating > 10)
-                        rating = 100;
-                    else
-                        rating += random_rating;
-                    bw.get(i).setRating((byte) (90 + rating));
-                }
+                list.get(i).setRating(definitionRating(list.get(i).mark, rating));
             }
+        }
+    }
+
+    private byte definitionRating(int mark,int mood){
+        byte rat=0;
+        switch(mark){
+            case 0:
+                rat = (byte)(Math.random() * 11);
+                rat += mood + 50;
+                if(rat<50)
+                    return 50;
+                else
+                    return rat;
+            case 1:
+                rat = (byte)(Math.random() * 31);
+                rat += mood + 60;
+                return rat;
+            case 2:
+                rat = (byte)(Math.random() * 11);
+                rat += mood + 90;
+                if(rat>100)
+                    return 100;
+                else
+                    return rat;
+            default: return 50;
         }
     }
 
@@ -85,11 +100,10 @@ public class Menu6 extends BaseMenu {
     }
 
     protected void writeWork(BaseWork bw) {
-        Utils.stringWriteToConsolWithoutEnter(bw.getName());
-        Utils.stringWriteToConsolWithoutEnter(bw.getGroup());
-        Utils.stringWriteToConsolWithoutEnter(bw.getDate().toString());
+        Utils.stringWriteToConsolWithoutEnter(bw.getName()+" ");
+        Utils.stringWriteToConsolWithoutEnter(bw.getGroup()+" ");
+        Utils.stringWriteToConsolWithoutEnter(bw.getDate().toString()+" ");
         Utils.stringWriteToConsol(Integer.toString(bw.getMark()));
-        Utils.writeEnter();
     }
 
     protected int getCountOfStudentWithRating(ArrayList<BaseWork> list){
