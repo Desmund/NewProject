@@ -61,7 +61,6 @@ public class Menu8 {
     }
 
     private void parseJsonString(String fileName)throws Exception{
-        //todo парсинг для Date исправть++++++
         ArrayList<BaseWork> bw = WorkInMemory.get().getAllList();
         FileUtils file = new FileUtils();
         String json = file.readFile(fileName);
