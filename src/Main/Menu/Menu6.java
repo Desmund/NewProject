@@ -53,7 +53,6 @@ public class Menu6 extends BaseMenu {
     }
 
     private void putRating(ArrayList<BaseWork>list,int rating){
-        //todo исправить выставление оценки++++++
         int random_rating=0;
         for(int i=0;i<list.size();i++) {
             if(list.get(i).getRating()==0) {

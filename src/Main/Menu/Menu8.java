@@ -3,8 +3,8 @@ package Main.Menu;
 import Main.Utils;
 import Main.FileUtils;
 import Main.WorkInMemory;
-import java.util.ArrayList;
-import java.util.Date;
+
+import java.util.*;
 
 import org.json.simple.*;
 import org.json.simple.parser.*;
@@ -24,8 +24,6 @@ public class Menu8 {
     }
 
     private boolean outputFile(){
-        //TODO фаловый вывод++++
-        //todo сохранение данных++++
         Utils.stringWriteToConsol("Введите полное имя файла(пример: e:/somefolder/somefile.txt):");
         try {
             String filePath = Utils.stringReadFromConsol();
@@ -63,7 +61,7 @@ public class Menu8 {
     }
 
     private void parseJsonString(String fileName)throws Exception{
-        //todo парсинг для Date исправть
+        //todo парсинг для Date исправть++++++
         ArrayList<BaseWork> bw = WorkInMemory.get().getAllList();
         FileUtils file = new FileUtils();
         String json = file.readFile(fileName);
@@ -77,15 +75,38 @@ public class Menu8 {
                 String group = ja.get(1).toString();
                 String theme = ja.get(2).toString();
                 int mark = Integer.parseInt(ja.get(3).toString());
-//                Date date = new Date(ja.get(4).toString());
+                Date date = parseDateString(ja.get(4).toString());
                 byte rating = Byte.parseByte(ja.get(5).toString());
                 BaseWork base = new BaseWork(name,theme,group,mark);
-//                base.setDate(date);
+                base.setDate(date);
                 base.setRating(rating);
                 bw.add(base);
             }
         }catch(Exception e){
             Utils.stringWriteToConsol("Ошибка,при парсинге строки!");
         }
+        Utils.stringWriteToConsol(" ");
     }
+
+    private Date parseDateString(String s){
+        StringTokenizer st = new StringTokenizer(s," ,;:",false);
+        int day=0,month=0,year=0,time=0;
+        int n = st.countTokens();
+        for(int i = 0; i < n; i++){
+            s = st.nextToken();
+            if (i == 1) month = (int) Month.valueOf(s).ordinal();
+            if(i==2)day=Integer.parseInt(s);
+            if(i==3)time+=Integer.parseInt(s)*3600000;
+            if(i==4)time+=Integer.parseInt(s)*60000;
+            if(i==5)time+=Integer.parseInt(s)*1000;
+            if(i==7)year=Integer.parseInt(s);
+        }
+        Calendar c = new GregorianCalendar(year,month,day);
+        Date d;
+        d = c.getTime();
+        d.setTime(d.getTime()+time);
+        return d;
+    }
+
+    enum Month {Jan,Feb, Mar, Apr, May, Jun,Jul,Aug,Sep,Oct,Nov,Dec }
 }
