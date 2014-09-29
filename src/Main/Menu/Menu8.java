@@ -14,16 +14,17 @@ import org.json.simple.parser.*;
  */
 public class Menu8 {
 
-    public void printMenu(){
-        if(!outputFile()) {
-            Utils.writeEnter();
-            new Menu9().printMenu();
-        }
+    ArrayList<BaseWork> bw = WorkInMemory.get().getAllList();
 
+    public void printMenu(boolean b){
+        if(!outputFile(b)) {
+            Utils.writeEnter();
+            new Menu9().printMenu(b);
+        }
         new Menu1().printMenu();
     }
 
-    private boolean outputFile(){
+    private boolean outputFile(boolean b){
         Utils.stringWriteToConsol("Введите полное имя файла(пример: e:/somefolder/somefile.txt):");
         try {
             String filePath = Utils.stringReadFromConsol();
@@ -33,8 +34,14 @@ public class Menu8 {
                 return false;
             }
             else{
-                //inputWork(filePath);
-                parseJsonString(filePath);
+                if(b)
+                    inputWork(filePath);
+                else
+                    parseJsonString(filePath);
+                if(bw.isEmpty()) {
+                    Utils.stringWriteToConsol("Файл пуст!");
+                    return false;
+                }
                 return true;
             }
         }catch(Exception e){
@@ -44,7 +51,6 @@ public class Menu8 {
     }
 
     private void inputWork(String fileName){
-        ArrayList<BaseWork> bw = WorkInMemory.get().getAllList();
         FileUtils file = new FileUtils();
         JSONObject obj = new JSONObject();
         for(int i=0;i<bw.size();i++) {
@@ -61,7 +67,6 @@ public class Menu8 {
     }
 
     private void parseJsonString(String fileName)throws Exception{
-        ArrayList<BaseWork> bw = WorkInMemory.get().getAllList();
         FileUtils file = new FileUtils();
         String json = file.readFile(fileName);
         JSONParser parser = new JSONParser();

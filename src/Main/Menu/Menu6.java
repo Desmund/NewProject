@@ -25,6 +25,8 @@ public class Menu6 extends BaseMenu {
                 Utils.writeEnter();
             }
         }
+        else
+            Utils.stringWriteToConsol("Нет работ!");
         Utils.stringWriteToConsol("Кол-во проверянных работ: " + getCountOfStudentWithRating(bw));
         Utils.writeEnter();
         stringWriteToConsol("Какое у вас сейчас настроение?");

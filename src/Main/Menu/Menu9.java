@@ -12,7 +12,7 @@ public class Menu9 extends BaseMenu{
         Utils.writeEnter();
         switch (i){
             case 1:
-                new Menu8().printMenu();
+                new Menu8().printMenu(getBool());
                 return true;
             case 2:
                 new Menu1().printMenu();
@@ -21,11 +21,21 @@ public class Menu9 extends BaseMenu{
         return false;
     }
 
-    @Override
-    public void printMenu() {
+    public void printMenu(boolean b) {
+        setBool(b);
         stringWriteToConsol("Пробуем ввести другой файл?");
         stringWriteToConsol("1 - Да");
         stringWriteToConsol("2 - Нет");
         getValue();
+    }
+
+    private boolean b;
+
+    private boolean getBool(){
+        return b;
+    }
+
+    private void setBool(boolean b){
+        this.b=b;
     }
 }
