@@ -27,6 +27,15 @@ public class WorkInMemory {
         return false;
     }
 
+    public int countWorkHasRating(){
+        int count = 0;
+        for(int i=0;i<bw.size();i++){
+            if(bw.get(i).getRating()>0)
+                count++;
+        }
+        return count;
+    }
+
     private WorkInMemory() {
     }
 

@@ -20,9 +20,9 @@ public class Menu1 extends BaseMenu{
         if(bw.size()!=0) {
             i++;
             stringWriteToConsol(i+" - Поставить оценки");
+            i++;
+            stringWriteToConsol(i+" - Просмотреть работы");
             if(WorkInMemory.get().oneWorkHasRating()) {
-                i++;
-                stringWriteToConsol(i+" - Просмотреть оценки");
                 i++;
                 stringWriteToConsol(i + " - Удалить провереные курсовые работы");
             }

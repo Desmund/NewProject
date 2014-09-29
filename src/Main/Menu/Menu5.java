@@ -14,16 +14,25 @@ public class Menu5{
 
     public void printMenu(){
         ArrayList<BaseWork> bw = WorkInMemory.get().getAllList();
-        outputWork(bw);
         Utils.stringWriteToConsol("Кол-во прогульщиков: "+getCountOfStudentByMark(bw,0));
         Utils.stringWriteToConsol("Кол-во хороших студентов: "+getCountOfStudentByMark(bw,1));
         Utils.stringWriteToConsol("Кол-во курсовиков: "+getCountOfStudentByMark(bw,2));
         Utils.writeEnter();
+        if(WorkInMemory.get().countWorkHasRating()!=bw.size()) {
+            Utils.stringWriteToConsol("Работы без оценок:");
+            outputWork(bw, false);
+            Utils.writeEnter();
+        }
+        if(WorkInMemory.get().oneWorkHasRating()) {
+            Utils.stringWriteToConsol("Работы с оценками:");
+            outputWork(bw, true);
+            Utils.writeEnter();
+        }
         new Menu1().printMenu();
     }
 
-    private void outputWork(ArrayList<BaseWork> bw) {
-        writeWorks(bw);
+    private void outputWork(ArrayList<BaseWork> bw,boolean b) {
+        writeWorks(bw,b);
         Utils.stringWriteToConsol("Нажмите Enter");
         try {
             Utils.stringReadFromConsol();
@@ -33,14 +42,20 @@ public class Menu5{
         //*примечание : если 0 - то не печатать строчку
     }
 
-    protected void writeWorks(ArrayList<BaseWork> list){
+    protected void writeWorks(ArrayList<BaseWork> list,boolean b){
         for(int i=0;i<list.size();i++) {
             BaseWork bw = list.get(i);
-            if(bw.getRating()!=0){
+            if(bw.getRating()!=0&&b){
                 Utils.stringWriteToConsolWithoutEnter(bw.getName()+" ");
                 Utils.stringWriteToConsolWithoutEnter(bw.getGroup()+" ");
                 Utils.stringWriteToConsolWithoutEnter(bw.getDate().toString()+" ");
                 Utils.stringWriteToConsol(Integer.toString(bw.getRating()));
+            }
+            else
+            if(bw.getRating()==0&&!b){
+                Utils.stringWriteToConsolWithoutEnter(bw.getName()+" ");
+                Utils.stringWriteToConsolWithoutEnter(bw.getGroup()+" ");
+                Utils.stringWriteToConsol(bw.getDate().toString() + " ");
             }
         }
     }
