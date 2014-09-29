@@ -25,9 +25,10 @@ public class Menu8 {
     }
 
     private boolean outputFile(boolean b){
-        Utils.stringWriteToConsol("Введите полное имя файла(пример: e:/somefolder/somefile.txt):");
+        Utils.stringWriteToConsol("Введите имя файла:");
         try {
-            String filePath = Utils.stringReadFromConsol();
+            String filePath ="E:/JS/MyNewProject/";
+            filePath += Utils.stringReadFromConsol();
             FileUtils file = new FileUtils();
             if(!file.exists(filePath)) {
                 Utils.stringWriteToConsol("Некорректное имя файла!");
